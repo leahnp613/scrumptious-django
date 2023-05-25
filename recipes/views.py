@@ -15,4 +15,4 @@ def recipe_list(request):
     context = {
         "recipe_list":recipes,
     }
-    return redner(request, "recipes/list.html", context)
+    return render(request, "recipes/list.html", context)

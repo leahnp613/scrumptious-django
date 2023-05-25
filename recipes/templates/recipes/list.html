@@ -11,19 +11,22 @@
 <body>
   <header>
     <nav>
-      <a href="./list.html">Main page</a>
+      <a href="{% url 'list_recipe' %}">Main page</a>
     </nav>
   </header>
   <main>
     <h1>Scrumptious Recipes</h1>
     <h2>All the food that's fit to eat</h2>
     <div class="recipe-grid">
+        {% for recipe in recipe_list %}
       <div>
         <h3>
-          <a href="detail.html">Vegetarian Tacos</a>
+          <a href="detail.html">{{recipe.title}}</a>
+          <p>{{ recipe.created_on|date:"M d, Y"}}</p>
         </h3>
-        <img src="https://mks.io/public-tacos">
+        <img src="{{recipe.picture}}">
         <div>4.3 stars</div>
+        {% endfor %}
       </div>
     </div>
   </main>
