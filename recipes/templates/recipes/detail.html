@@ -11,7 +11,7 @@
 <body>
   <header>
     <nav>
-      <a href="/recipes/">Main page</a>
+      <a href="{% url 'list_recipe' %}">Main page</a>
     </nav>
   </header>
   <main>
@@ -20,7 +20,7 @@
     <div class="recipe-grid">
       <div>
         <h3>
-          <a href="detail.html">Vegetarian Tacos</a>
+          <a href="{% url 'show_recipe' recipe.id %}"> </a>
         </h3>
         <img src="https://mks.io/public-tacos">
         <div>4.3 stars</div>
