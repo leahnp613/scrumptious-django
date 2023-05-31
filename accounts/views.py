@@ -24,7 +24,7 @@ def signup(request):
              )
 
              login(request, user)
-             return redirect("recipe_list")
+             return redirect("recipes:list_recipe")
         else:
             form.add_error("password", "Passwords do not match")
     else:

@@ -7,8 +7,14 @@
 {% block content %}
 <header>
     <nav>
-      <a href="{% url 'list_recipe' %}">Main page</a>
-      <a href="{% url 'create_recipe' %}">Create a recipe</a>
+      <a href="{% url 'recipes:list_recipe' %}">Main page</a>
+      <a href="{% url 'recipes:create_recipe' %}">Create a recipe</a>
+    
+    {% if user.is_authenticated %}
+        Hello, {{user.username}}
+    {% else %}
+      <a href="{% url 'accounts:signup' %}">Sign Up</a>
+      {% endif %}
     </nav>
   </header>
   <main>
@@ -18,7 +24,7 @@
         {% for recipe in recipe_list %}
       <div>
         <h3>
-            <a href="{% url 'show_recipe' recipe.id %}">{{ recipe.title }}</a>
+            <a href="{% url 'recipes:show_recipe' recipe.id %}">{{ recipe.title }}</a>
           <p>{{ recipe.created_on|date:"M d, Y"}}</p>
         </h3>
         <img src="{{recipe.picture}}">
